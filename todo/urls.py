@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from main.views import *
 from django.conf import settings
+from main.views import homepage, test, page1, page2, page3
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -24,6 +25,9 @@ urlpatterns = [
     path("", homepage, name="home"),
     path("test/", test, name="test"),
     path("test2/", second),
+    path("page1", page1, name = "page1"),
+    path("page2", page2, name = "page2"),
+    path("page3", page3, name = "page3"),
     path("add-todo/", add_todo, name="add-todo"),
     path("delete-todo/<id>/", delete_todo, name="delete-todo"),
     path("mark-todo/<id>/", mark_todo, name="mark-todo"),
