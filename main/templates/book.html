@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static "styles/style2.css" %}">
+    <link rel="stylesheet" href="{% static 'styles/style2.css' %}">
     <title>Document</title>
 </head>
 <body>
     <div class="container">
         <div class="section_1">
-            <form action="{% url "add-book" %}" method="POST">
+            <form action="{% url 'add-book' %}" method="POST">
                 {% csrf_token %}
                 <input class="create_input" type="text" placeholder="Напишите сюда название книги"                name="book_text">    
                 <input class="create_input" type="text" placeholder="Напишите сюда автора"                name="book_text2"> 
@@ -39,12 +39,12 @@
                      <h3>{{ book.is_favorite }}</h3>
                    <div class="footer">
                        {% if book.is_favorite %}
-                        <a href="{% url "book-todo" book.id %}"><img src="{%static "/img/star.png" %}"></a>
+                        <a href="{% url 'book-todo' book.id %}"><img src="{%static '/icons/star.png' %}"></a>
                        {% else %}
-                        <a href="{% url "book-todo" book.id %}"><img src="{%static "/img/yellow.png" %}"></a>
+                        <a href="{% url 'book-todo' book.id %}"><img src="{%static '/icons/yellow.png' %}"></a>
                        {% endif %}
-                        <a href="{% url "book-delete" book.id %}"><img src="{%static "/img/basket.png" %}"></a>
-                        <a href="{% url "book_detail" book.id %}"><button>detail</button></a> 
+                        <a href="{% url 'book-delete' book.id %}"><img src="{%static '/icons/basket.png' %}"></a>
+                        <a href="{% url 'book_detail' book.id %}"><button>detail</button></a> 
                    </div> 
                 </div>
             {% endfor %}

@@ -17,21 +17,25 @@ from django.contrib import admin
 from django.urls import path
 from main.views import *
 from django.conf import settings
-from main.views import homepage, test, page1, page2, page3,books_sale
 from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", homepage, name="home"),
-    path("test/", test, name="test"),
-    path("test2/", second),
+    path("", homepage, name = "homepage"),
+    path("test", test, name = "test"),
     path("page1", page1, name = "page1"),
     path("page2", page2, name = "page2"),
     path("page3", page3, name = "page3"),
-    path("books_sale", books_sale, name = "books_sale"),
-    path("add-todo/", add_todo, name="add-todo"),
-    path("delete-todo/<id>/", delete_todo, name="delete-todo"),
-    path("mark-todo/<id>/", mark_todo, name="mark-todo"),
+    path("book", book_sale, name = "book"),
+    path("add-todo", add_todo, name = "add-todo"),
+    path("add-book", add_book, name = "add-book"),
+    path("delete-todo/<id>/", delete_todo, name = "delete-todo"),
+    path("mark-todo/<id>/", mark_todo, name = "mark-todo"),
     path("close-todo/<id>/", close_todo, name="close-todo"),
+    path("book-todo/<id>/", book_todo, name = "book-todo"),
+    path("book-delete/<id>/", book_delete, name = "book-delete"),
+    path("book_detail/<id>/", book_detail, name = "book_detail",)
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
